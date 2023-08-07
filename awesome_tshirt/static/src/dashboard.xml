@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
 
     <t t-name="awesome_tshirt.clientaction" owl="1">
@@ -9,6 +9,17 @@
                 <button class="btn btn-primary" t-on-click="openLast7CancelledOrders"> Cancelled Orders </button>
               </t>
          </Layout>
+         <t t-call="awesome_tshirt.clientacion.statistics" />
     </t>
 
+    <t t-name="awesome_tshirt.clientacion.statistics" owl="1">
+     <div class="d-flex flex-nowrap">
+          <div t-foreach="cardStrings" t-as="key" t-key="key" class="m-2" >
+          <Card>
+               <t t-set-slot="title"><t t-esc="cardStrings[key]" /></t>
+               <p class="card-text"><t t-esc="statistics[key]" /></p>
+          </Card>
+     </div>
+     </div>
+    </t>
 </templates>
